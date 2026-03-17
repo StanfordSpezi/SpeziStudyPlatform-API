@@ -15,6 +15,5 @@ authors:
 - family-names: "Nagy"
   given-names: "Philipp"
   orcid: "https://orcid.org/0009-0006-0937-9397"
-title: "SpeziStudyPlatformAPI"
-doi: 10.5281/zenodo.7538165
+title: "SpeziStudyPlatform-API"
 url: "https://github.com/StanfordSpezi/SpeziStudyPlatform-API"

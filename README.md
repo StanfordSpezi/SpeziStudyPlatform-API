@@ -8,7 +8,7 @@ SPDX-License-Identifier: MIT
 
 -->
 
-# SpeziStudyPlatformAPI
+# SpeziStudyPlatform-API
 
 [![Build and Test](https://github.com/StanfordSpezi/SpeziStudyPlatform-API/actions/workflows/build-and-test.yml/badge.svg)](https://github.com/StanfordSpezi/SpeziStudyPlatform-API/actions/workflows/build-and-test.yml)
 
