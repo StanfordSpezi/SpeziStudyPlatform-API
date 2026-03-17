@@ -13,7 +13,7 @@ public struct InformationalContent: Hashable, Codable, Sendable {
     public let lede: String?
     public let content: String
 
-    public init(title: String, lede: String? = nil, content: String) {
+    public init(title: String, content: String, lede: String? = nil) {
         self.title = title
         self.lede = lede
         self.content = content

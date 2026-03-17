@@ -9,23 +9,15 @@
 
 /// Note: This type is mapped from Components.Schemas.StudyDetailContent via typeOverrides in openapi-generator-config.yaml
 public struct StudyDetailContent: Codable, Sendable, Hashable {
-    public var title: String
-    public var shortTitle: String
-    public var explanationText: String
-    public var shortExplanationText: String
+    public var title: String?
+    public var shortTitle: String?
+    public var explanationText: String?
+    public var shortExplanationText: String?
 
-    public init(title: String = "", shortTitle: String = "", explanationText: String = "", shortExplanationText: String = "") {
+    public init(title: String? = nil, shortTitle: String? = nil, explanationText: String? = nil, shortExplanationText: String? = nil) {
         self.title = title
         self.shortTitle = shortTitle
         self.explanationText = explanationText
         self.shortExplanationText = shortExplanationText
-    }
-
-    public init(from decoder: any Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.title = try container.decodeIfPresent(String.self, forKey: .title) ?? ""
-        self.shortTitle = try container.decodeIfPresent(String.self, forKey: .shortTitle) ?? ""
-        self.explanationText = try container.decodeIfPresent(String.self, forKey: .explanationText) ?? ""
-        self.shortExplanationText = try container.decodeIfPresent(String.self, forKey: .shortExplanationText) ?? ""
     }
 }

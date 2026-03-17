@@ -12,32 +12,16 @@ import Foundation
 
 @main
 struct GenerateAPI: ParsableCommand {
-    static let configuration = CommandConfiguration(
-        commandName: "generate-api",
-        abstract: "Generate OpenAPI types, client, and server Swift code."
-    )
-
-    @Option(name: .long, help: "Path to the OpenAPI spec file.")
-    var spec: String = "openapi.yaml"
-
-    @Flag(name: .long, help: "Generate the types target.")
-    var types = false
-
-    @Flag(name: .long, help: "Generate the client target.")
-    var client = false
-
-    @Flag(name: .long, help: "Generate the server target.")
-    var server = false
-
-    private var generateAll: Bool {
-        !types && !client && !server
-    }
-
     private struct Target {
         let label: String
         let config: String
         let outputDirectory: String
     }
+
+    static let configuration = CommandConfiguration(
+        commandName: "generate-api",
+        abstract: "Generate OpenAPI types, client, and server Swift code."
+    )
 
     private static let allTargets: [Target] = [
         Target(
@@ -56,6 +40,15 @@ struct GenerateAPI: ParsableCommand {
             outputDirectory: "Sources/SpeziStudyPlatformAPIServer/Generated"
         )
     ]
+
+    @Option(name: .long, help: "Path to the OpenAPI spec file.") var spec: String = "openapi.yaml"
+    @Flag(name: .long, help: "Generate the types target.") var types = false
+    @Flag(name: .long, help: "Generate the client target.") var client = false
+    @Flag(name: .long, help: "Generate the server target.") var server = false
+
+    private var generateAll: Bool {
+        !types && !client && !server
+    }
 
     mutating func run() throws {
         let selectedTargets: [Target]
