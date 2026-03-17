@@ -15,12 +15,12 @@ import PackageDescription
 let package = Package(
     name: "SpeziStudyPlatformAPI",
     platforms: [
-        .iOS(.v17),
-        .watchOS(.v10),
-        .visionOS(.v1),
-        .tvOS(.v17),
+        .iOS(.v18),
+        .watchOS(.v11),
+        .visionOS(.v2),
+        .tvOS(.v18),
         .macOS(.v15),
-        .macCatalyst(.v17)
+        .macCatalyst(.v18)
     ],
     products: [
         .library(name: "SpeziStudyPlatformAPITypes", targets: ["SpeziStudyPlatformAPITypes"]),
@@ -74,7 +74,8 @@ let package = Package(
             name: "SpeziStudyPlatformAPITests",
             dependencies: [
                 .target(name: "SpeziStudyPlatformAPITypes"),
-                .target(name: "SpeziStudyPlatformAPIClient")
+                .target(name: "SpeziStudyPlatformAPIClient"),
+                .target(name: "SpeziStudyPlatformAPIServer")
             ],
             plugins: [] + swiftLintPlugin()
         )
