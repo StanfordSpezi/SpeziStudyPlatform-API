@@ -6,11 +6,11 @@
 // SPDX-License-Identifier: MIT
 //
 
+#if os(macOS) || os(Linux)
 import ArgumentParser
 import Foundation
 
 
-@main
 struct GenerateAPI: ParsableCommand {
     private struct Target {
         let label: String
@@ -89,3 +89,4 @@ struct GenerateAPI: ParsableCommand {
         }
     }
 }
+#endif
