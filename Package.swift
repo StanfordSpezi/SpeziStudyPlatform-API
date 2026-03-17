@@ -12,6 +12,18 @@ import class Foundation.ProcessInfo
 import PackageDescription
 
 
+var dependencies: [Package.Dependency] = [
+    .package(url: "https://github.com/apple/swift-openapi-runtime.git", from: "1.7.0"),
+    .package(url: "https://github.com/apple/swift-openapi-urlsession.git", from: "1.0.0"),
+    .package(url: "https://github.com/StanfordSpezi/SpeziFoundation.git", from: "2.7.3"),
+    .package(url: "https://github.com/StanfordSpezi/SpeziHealthKit.git", from: "1.4.0"),
+    .package(url: "https://github.com/StanfordSpezi/SpeziStudy.git", branch: "localized-metadata")
+] + swiftLintPackage()
+
+#if os(macOS) || os(Linux)
+dependencies.append(.package(url: "https://github.com/apple/swift-argument-parser.git", from: "1.5.0"))
+#endif
+
 var targets: [Target] = [
     .target(
         name: "SpeziStudyPlatformAPITypes",
@@ -78,14 +90,7 @@ let package = Package(
         .library(name: "SpeziStudyPlatformAPIClient", targets: ["SpeziStudyPlatformAPIClient"]),
         .library(name: "SpeziStudyPlatformAPIServer", targets: ["SpeziStudyPlatformAPIServer"])
     ],
-    dependencies: [
-        .package(url: "https://github.com/apple/swift-openapi-runtime.git", from: "1.7.0"),
-        .package(url: "https://github.com/apple/swift-openapi-urlsession.git", from: "1.0.0"),
-        .package(url: "https://github.com/apple/swift-argument-parser.git", from: "1.5.0"),
-        .package(url: "https://github.com/StanfordSpezi/SpeziFoundation.git", from: "2.7.3"),
-        .package(url: "https://github.com/StanfordSpezi/SpeziHealthKit.git", from: "1.4.0"),
-        .package(url: "https://github.com/StanfordSpezi/SpeziStudy.git", branch: "localized-metadata")
-    ] + swiftLintPackage(),
+    dependencies: dependencies,
     targets: targets
 )
 
