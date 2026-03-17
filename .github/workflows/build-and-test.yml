@@ -37,8 +37,6 @@ jobs:
             destination: 'platform=watchOS Simulator,name=Apple Watch Series 11 (46mm)'
           - name: visionOS
             destination: 'platform=visionOS Simulator,name=Apple Vision Pro'
-          - name: tvOS
-            destination: 'platform=tvOS Simulator,name=Apple TV 4K (3rd generation)'
       fail-fast: false
     with:
       runsonlabels: '["macOS", "self-hosted"]'
