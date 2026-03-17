@@ -7,7 +7,7 @@
 //
 
 
-/// Note: This type is mapped from Components.Schemas.StudyConsent via typeOverrides in openapi-generator-config.yaml
+/// Note: This type is mapped from Components.Schemas.StudyConsent via typeOverrides in the OpenAPI generator config files.
 public struct ConsentContent: Codable, Sendable, Hashable {
     public var title: String
     public var content: String

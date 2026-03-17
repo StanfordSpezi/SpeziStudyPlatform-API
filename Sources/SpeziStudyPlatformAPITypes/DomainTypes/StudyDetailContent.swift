@@ -7,7 +7,7 @@
 //
 
 
-/// Note: This type is mapped from Components.Schemas.StudyDetailContent via typeOverrides in openapi-generator-config.yaml
+/// Note: This type is mapped from Components.Schemas.StudyDetailContent via typeOverrides in the OpenAPI generator config files.
 public struct StudyDetailContent: Codable, Sendable, Hashable {
     public var title: String
     public var shortTitle: String?

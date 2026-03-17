@@ -7,7 +7,7 @@
 //
 
 
-/// Note: This type is mapped from Components.Schemas.QuestionnaireContent via typeOverrides in openapi-generator-config.yaml
+/// Note: This type is mapped from Components.Schemas.QuestionnaireContent via typeOverrides in the OpenAPI generator config files.
 public struct QuestionnaireContent: Hashable, Codable, Sendable {
     public let questionnaire: String
 

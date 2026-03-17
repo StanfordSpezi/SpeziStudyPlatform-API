@@ -7,7 +7,7 @@
 //
 
 
-/// Note: This type is mapped from Components.Schemas.EnrollmentConditions via typeOverrides in openapi-generator-config.yaml
+/// Note: This type is mapped from Components.Schemas.EnrollmentConditions via typeOverrides in the OpenAPI generator config files.
 public enum EnrollmentConditions: String, Codable, Sendable {
     /// No special conditions, anyone can enroll.
     case none

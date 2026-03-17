@@ -7,7 +7,7 @@
 //
 
 
-/// Note: This type is mapped from Components.Schemas.InformationalContent via typeOverrides in openapi-generator-config.yaml
+/// Note: This type is mapped from Components.Schemas.InformationalContent via typeOverrides in the OpenAPI generator config files.
 public struct InformationalContent: Hashable, Codable, Sendable {
     public let title: String
     public let lede: String?
