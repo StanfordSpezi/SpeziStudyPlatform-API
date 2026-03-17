@@ -12,6 +12,57 @@ import class Foundation.ProcessInfo
 import PackageDescription
 
 
+var targets: [Target] = [
+    .target(
+        name: "SpeziStudyPlatformAPITypes",
+        dependencies: [
+            .product(name: "OpenAPIRuntime", package: "swift-openapi-runtime"),
+            .product(name: "SpeziLocalization", package: "SpeziFoundation"),
+            .product(name: "SpeziHealthKit", package: "SpeziHealthKit"),
+            .product(name: "SpeziStudyDefinition", package: "SpeziStudy")
+        ],
+        plugins: [] + swiftLintPlugin()
+    ),
+    .target(
+        name: "SpeziStudyPlatformAPIClient",
+        dependencies: [
+            .target(name: "SpeziStudyPlatformAPITypes"),
+            .product(name: "OpenAPIRuntime", package: "swift-openapi-runtime"),
+            .product(name: "OpenAPIURLSession", package: "swift-openapi-urlsession")
+        ],
+        plugins: [] + swiftLintPlugin()
+    ),
+    .target(
+        name: "SpeziStudyPlatformAPIServer",
+        dependencies: [
+            .target(name: "SpeziStudyPlatformAPITypes"),
+            .product(name: "OpenAPIRuntime", package: "swift-openapi-runtime")
+        ],
+        plugins: [] + swiftLintPlugin()
+    ),
+    .testTarget(
+        name: "SpeziStudyPlatformAPITests",
+        dependencies: [
+            .target(name: "SpeziStudyPlatformAPITypes"),
+            .target(name: "SpeziStudyPlatformAPIClient"),
+            .target(name: "SpeziStudyPlatformAPIServer")
+        ],
+        plugins: [] + swiftLintPlugin()
+    )
+]
+
+#if os(macOS) || os(Linux)
+targets.append(
+    .executableTarget(
+        name: "SpeziStudyPlatformAPIGenerator",
+        dependencies: [
+            .product(name: "ArgumentParser", package: "swift-argument-parser")
+        ],
+        plugins: [] + swiftLintPlugin()
+    )
+)
+#endif
+
 let package = Package(
     name: "SpeziStudyPlatformAPI",
     platforms: [
@@ -35,51 +86,7 @@ let package = Package(
         .package(url: "https://github.com/StanfordSpezi/SpeziHealthKit.git", from: "1.4.0"),
         .package(url: "https://github.com/StanfordSpezi/SpeziStudy.git", branch: "localized-metadata")
     ] + swiftLintPackage(),
-    targets: [
-        .target(
-            name: "SpeziStudyPlatformAPITypes",
-            dependencies: [
-                .product(name: "OpenAPIRuntime", package: "swift-openapi-runtime"),
-                .product(name: "SpeziLocalization", package: "SpeziFoundation"),
-                .product(name: "SpeziHealthKit", package: "SpeziHealthKit"),
-                .product(name: "SpeziStudyDefinition", package: "SpeziStudy")
-            ],
-            plugins: [] + swiftLintPlugin()
-        ),
-        .target(
-            name: "SpeziStudyPlatformAPIClient",
-            dependencies: [
-                .target(name: "SpeziStudyPlatformAPITypes"),
-                .product(name: "OpenAPIRuntime", package: "swift-openapi-runtime"),
-                .product(name: "OpenAPIURLSession", package: "swift-openapi-urlsession")
-            ],
-            plugins: [] + swiftLintPlugin()
-        ),
-        .target(
-            name: "SpeziStudyPlatformAPIServer",
-            dependencies: [
-                .target(name: "SpeziStudyPlatformAPITypes"),
-                .product(name: "OpenAPIRuntime", package: "swift-openapi-runtime")
-            ],
-            plugins: [] + swiftLintPlugin()
-        ),
-        .executableTarget(
-            name: "SpeziStudyPlatformAPIGenerator",
-            dependencies: [
-                .product(name: "ArgumentParser", package: "swift-argument-parser")
-            ],
-            plugins: [] + swiftLintPlugin()
-        ),
-        .testTarget(
-            name: "SpeziStudyPlatformAPITests",
-            dependencies: [
-                .target(name: "SpeziStudyPlatformAPITypes"),
-                .target(name: "SpeziStudyPlatformAPIClient"),
-                .target(name: "SpeziStudyPlatformAPIServer")
-            ],
-            plugins: [] + swiftLintPlugin()
-        )
-    ]
+    targets: targets
 )
 
 
