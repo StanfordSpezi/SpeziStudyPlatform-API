@@ -9,12 +9,12 @@
 
 /// Note: This type is mapped from Components.Schemas.StudyDetailContent via typeOverrides in openapi-generator-config.yaml
 public struct StudyDetailContent: Codable, Sendable, Hashable {
-    public var title: String?
+    public var title: String
     public var shortTitle: String?
     public var explanationText: String?
     public var shortExplanationText: String?
 
-    public init(title: String? = nil, shortTitle: String? = nil, explanationText: String? = nil, shortExplanationText: String? = nil) {
+    public init(title: String, shortTitle: String? = nil, explanationText: String? = nil, shortExplanationText: String? = nil) {
         self.title = title
         self.shortTitle = shortTitle
         self.explanationText = explanationText
