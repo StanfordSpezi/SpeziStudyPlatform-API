@@ -10,7 +10,7 @@ SPDX-License-Identifier: MIT
 
 # SpeziStudyPlatform-API
 
-[![Build and Test](https://github.com/StanfordSpezi/SpeziStudyPlatform-API/actions/workflows/build-and-test.yml/badge.svg)](https://github.com/StanfordSpezi/SpeziStudyPlatform-API/actions/workflows/build-and-test.yml)
+[![CI](https://github.com/StanfordSpezi/SpeziStudyPlatform-API/actions/workflows/ci.yml/badge.svg)](https://github.com/StanfordSpezi/SpeziStudyPlatform-API/actions/workflows/ci.yml)
 [![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2FStanfordSpezi%2FSpeziStudyPlatform-API%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/StanfordSpezi/SpeziStudyPlatform-API)
 [![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2FStanfordSpezi%2FSpeziStudyPlatform-API%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/StanfordSpezi/SpeziStudyPlatform-API)
 
