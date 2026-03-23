@@ -32,7 +32,7 @@ let package = Package(
         .package(url: "https://github.com/apple/swift-argument-parser.git", from: "1.5.0"),
         .package(url: "https://github.com/StanfordSpezi/SpeziFoundation.git", from: "2.7.3"),
         .package(url: "https://github.com/StanfordSpezi/SpeziHealthKit.git", from: "1.4.0"),
-        .package(url: "https://github.com/StanfordSpezi/SpeziStudy.git", branch: "localized-metadata")
+        .package(url: "https://github.com/StanfordSpezi/SpeziStudy.git", from: "0.2.0")
     ] + swiftLintPackage(),
     targets: [
         .target(
